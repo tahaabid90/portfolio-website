@@ -6,6 +6,11 @@
     <title>Muhammad Taha Portfolio</title>
     <meta name="description" content="Portfolio of Muhammad Taha, a Web Developer specializing in HTML, CSS, JavaScript, React, Firebase, and Python.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/fevicon/fevicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/fevicon/fevicon.png">
+    <link rel="apple-touch-icon" href="images/fevicon/fevicon.png">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +28,18 @@
     <div id="loader">
         <div class="spinner"></div>
     </div>
+    <script>
+        // Inline failsafe: removes loader after 3s even if external CDN scripts stall
+        setTimeout(function() {
+            var el = document.getElementById('loader');
+            if (el && !el.classList.contains('loaded')) {
+                el.classList.add('loaded');
+                el.style.opacity = '0';
+                el.style.pointerEvents = 'none';
+                setTimeout(function() { el.style.display = 'none'; }, 500);
+            }
+        }, 3000);
+    </script>
 
     <!-- Header / Navbar -->
     <header>
@@ -62,14 +79,14 @@
             </div>
         </div>
         <div class="hero-img">
-            <img src="images/profile.png" alt="Muhammad Taha Profile" id="profile-img" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Image'">
+            <img src="images/profile.png" alt="Muhammad Taha Profile" id="profile-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'><rect width=\'400\' height=\'400\' fill=\'%231f242d\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230ef\' font-family=\'sans-serif\' font-size=\'22\'>Muhammad Taha</text></svg>'">
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-img">
-            <img src="images/about.png" alt="About Taha" onerror="this.src='https://via.placeholder.com/350x450?text=About+Me'">
+            <img src="images/about.png" alt="About Taha" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'350\' height=\'450\' viewBox=\'0 0 350 450\'><rect width=\'350\' height=\'450\' fill=\'%231f242d\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%230ef\' font-family=\'sans-serif\' font-size=\'22\'>About Me</text></svg>'">
         </div>
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
