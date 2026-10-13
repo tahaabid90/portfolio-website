@@ -1,5 +1,5 @@
 /* ==============================================
-   Muhammad Taha - Portfolio Stylesheet
+   Muhammad Ahmed Raza - Portfolio Stylesheet
    Theme: Dark with Glassmorphism & Gradient Accents
    ============================================== */
 
@@ -183,7 +183,13 @@ ul { list-style: none; }
     align-items: center;
     gap: 1.5rem;
     z-index: 99999;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loader.loaded {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .loader-logo {
