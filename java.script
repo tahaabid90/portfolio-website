@@ -25,17 +25,42 @@ if (USE_EMAILJS && EMAILJS_CONFIG) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    const loader = document.getElementById('loader');
-
-    window.addEventListener('load', () => {
-        setTimeout(() => {
+/* ── Failsafe Preloader Dismissal ── */
+(function setupLoader() {
+    let dismissed = false;
+    function hideLoader() {
+        if (dismissed) return;
+        dismissed = true;
+        const loader = document.getElementById('loader');
+        if (loader) {
+            loader.classList.add('loaded');
             loader.style.opacity = '0';
-            loader.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
-        }, 1200);
-    });
+            loader.style.pointerEvents = 'none';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }
+
+    // 1. If page is already loaded (common with browser cache / fast CDN)
+    if (document.readyState === 'complete') {
+        setTimeout(hideLoader, 500);
+    } else {
+        // 2. Normal window load event
+        window.addEventListener('load', () => {
+            setTimeout(hideLoader, 600);
+        });
+        // 3. Fallback when DOM is ready but some heavy external CDN stalls window.load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hideLoader, 1500);
+        });
+    }
+
+    // 4. Guaranteed maximum fallback timeout (guarantees loader NEVER hangs on GitHub Pages)
+    setTimeout(hideLoader, 2500);
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
 
 
 
