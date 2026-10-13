@@ -1,0 +1,81 @@
+# ============================================================
+# 🔒 CREDENTIALS & SECRETS  —  NEVER UPLOAD THESE!
+# ============================================================
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+*.env
+secrets.js
+config.private.js
+
+# ============================================================
+# 🖥️ OS Generated Files
+# ============================================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+
+# ============================================================
+# 📦 Node / Dependencies (if ever added)
+# ============================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnp
+.pnp.js
+
+# ============================================================
+# 🛠️ IDE / Editor Files
+# ============================================================
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# JetBrains (WebStorm, IntelliJ)
+.idea/
+*.iml
+
+# Vim / Nano
+*.swp
+*.swo
+.project
+.settings/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ============================================================
+# 🏗️ Build / Dist Output (if ever added)
+# ============================================================
+dist/
+build/
+out/
+.cache/
+.parcel-cache/
+
+# ============================================================
+# 📂 Misc
+# ============================================================
+*.log
+*.bak
+*.orig
+*.tmp
+.sass-cache/
